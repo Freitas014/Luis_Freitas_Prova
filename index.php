@@ -56,5 +56,8 @@
     </form>
 
     <p><a href="recuperar_senha.php">Esqueci a minha senha</a></p>
+    <br><br><address align="center">
+        Luís Fernando / Estudante / Técnico Desenvolvimento de Sistemas
+    </address>
 </body>
 </html>
