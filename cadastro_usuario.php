@@ -64,5 +64,8 @@
     </form>
 
     <a href="principal.php">Voltar</a>
+    <br><br><address align="center">
+        Luís Fernando / Estudante / Técnico Desenvolvimento de Sistemas
+    </address>
 </body>
 </html>
