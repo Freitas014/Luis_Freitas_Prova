@@ -4,7 +4,7 @@
 
     //Garante que o usuario esteja logado
     if (!isset($_SESSION['id_usuario'])){
-        echo "<script>alert('Acesso Negado!');window.location.href='login.php';</script>";
+        echo "<script>alert('Acesso Negado!');window.location.href='index.php';</script>";
         exit();
     }
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -25,12 +25,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         //Atualiza a senha e remove o status de temporaria
         $sql ="UPDATE usuario SET senha= :senha, senha_temporaria = FALSE WHERE id_usuario = :id";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':senha', $semha_hash);
-        $stmt->bindParam(':id', $id_susario);
+        $stmt->bindParam(':senha', $senha_hash);
+        $stmt->bindParam(':id', $id_usuario);
 
         if($stmt->execute()){
             session_destroy(); //Finaliza a sessão
-            echo "<script>alert('Senha alterada com sucesso! Faça login novamente');window.location.href='login.php';</script>";
+            echo "<script>alert('Senha alterada com sucesso! Faça login novamente');window.location.href='index.php';</script>";
         } else{
             echo "<script>alert('Erro ao alterar a senha!');</script>";
         }
@@ -65,8 +65,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     <script>
         function mostrarSenha(){
-            var senha1 = document.getElementByID("nova_senha");
-            var senha2 = document.getElementByID("confirmar_senha");
+            var senha1 = document.getElementById("nova_senha");
+            var senha2 = document.getElementById("confirmar_senha");
             var tipo = senha1.type === "password" ? "text": "password";
             senha1.type=tipo;
             senha2.type=tipo;
