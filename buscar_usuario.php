@@ -19,9 +19,9 @@
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':busca', $busca, PDO::PARAM_INT);
         }else{
-            $sql = "SELECT * FROM usuario WHERE nome LIKE :busca ORDER BY nome ASC";
+            $sql = "SELECT * FROM usuario WHERE nome LIKE :busca_nome ORDER BY nome ASC";
             $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':busca_nome', "%$busca%", PDO::PARAM_STR);
+            $stmt->bindValue(':busca_nome', "$busca%", PDO::PARAM_STR);
         }
     }else {
         $sql = "SELECT * FROM usuario ORDER BY nome ASC";
@@ -29,7 +29,7 @@
         
     }
         $stmt->execute();
-        $usuario = $stmt->fetchALL(PDO::FETCH_ASSOC);
+        $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -48,7 +48,7 @@
         <button type="submit">Buscar</button>
     </form>
         <?php if(!empty($usuarios)): ?>
-            <table>
+            <table border="1">
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
@@ -57,14 +57,24 @@
                     <th>Ações</th>
                 </tr>
                 <?php foreach($usuarios as $usuario) :?>
-                    <tr>
+                <tr>
                     <td><?=htmlspecialchars($usuario['id_usuario'])?></td>
                     <td><?=htmlspecialchars($usuario['nome'])?></td>
                     <td><?=htmlspecialchars($usuario['email'])?></td>
                     <td><?=htmlspecialchars($usuario['id_perfil'])?></td>
-                    <td><?=htmlspecialchars($usuario['id_usuario'])?></td>
+                    <td>
+                        <a href="alterar_usuario.php><?=htmlspecialchars
+                        ($usuario['id_usuario'])?>">Alterar</a>
+                            
+                        <a href="excluir_usuario.php><?=htmlspecialchars
+                        ($usuario['id_usuario'])?>" onclick="return confirm('Tem certeza que deseja excluír este usuário?')">Excluír</a>
+                    </td>
                 </tr>
+                <?php endforeach; ?>
             </table>
-            
+        <?php else: ?>
+            <p>Nehum usuário encontrado.</p>
+        <?php endif; ?>
+        <a href="principal.php">Voltar</a>
 </body>
 </html>
