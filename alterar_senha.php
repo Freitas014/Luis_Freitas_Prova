@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
     <h2>Alterar Senha</h2>
-    <p>Olá, <strong><?php echo $_SESSION['usuario'];?><strong>.Digite sua nova senha Abaixo:</p>
+    <p>Olá, <strong><?php echo $_SESSION['usuario'];?><strong> Digite sua nova senha Abaixo:</p>
 
     <form action="alterar_senha.php" method="POST">
         <label for="nova_senha">Nova Senha</label>
