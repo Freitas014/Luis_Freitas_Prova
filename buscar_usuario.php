@@ -48,6 +48,7 @@
         <button type="submit">Buscar</button>
     </form>
         <?php if(!empty($usuarios)): ?>
+            <center>
             <table border="1">
                 <tr>
                     <th>ID</th>
@@ -71,10 +72,11 @@
                     </td>
                 </tr>
                 <?php endforeach; ?>
-            </table>
+            </table></center>
         <?php else: ?>
             <p>Nehum usuário encontrado.</p>
         <?php endif; ?>
+        <br>
         <a href="principal.php">Voltar</a>
 </body>
 </html>
