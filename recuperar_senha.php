@@ -45,9 +45,9 @@
     <h2>Recuperar Senha</h2>
     <form action="recuperar_senha.php" method="POST">
         <label for="email">Digite o seu email cadastrado</label>
-        <input type="email" id="email" name="email" required>
+        <input  class="form-control" type="email" id="email" name="email" required>
 
-        <button type="submit">Enviar a Senha Temporaria</botton>
+        <button type="submit" class="btn btn-outline-warning">Enviar a Senha Temporaria</botton>
     </form>
     <br><br><address align="center">
         Luís Fernando / Estudante / Técnico Desenvolvimento de Sistemas
