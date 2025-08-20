@@ -156,7 +156,6 @@ select {
 button {
     width: 80%;
     padding: 10px;
-    background-color: #007bff; /* Azul bonito */
     color: white;
     border: none;
     border-radius: 5px;
@@ -167,4 +166,12 @@ button {
 
 button:hover {
     background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+#botao{
+    background-color: #ffffff !important;
+    border-color: #3d3d3d !important;
+}
+#botao:hover{
+    background-color: #3d3d3d !important;
+    border-color: #ffffff !important;
 }
