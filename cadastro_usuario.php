@@ -122,7 +122,7 @@ $permissoes = [
          
 
         <label for="email">Email:</label>
-        <input type="text" class="form-control" placeholder="Pesquisar Fornecedores" id="email" name="email" required>
+        <input type="email" class="form-control" placeholder="Pesquisar Fornecedores" id="email" name="email" required>
 
         <label for="senha">Senha:</label>
         <input type="password" class="form-control" placeholder="Pesquisar Fornecedores" id="senha" name="senha" required>
