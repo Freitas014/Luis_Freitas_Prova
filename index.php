@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     session_start();
     require_once 'conexao.php';
 
@@ -34,25 +34,26 @@
             echo "<script>alert('E-mail ou senha incorretos!');window.location.href='index.php';</script>";
         }
     }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h2>Login</h2>
     <form action="index.php" method="POST">
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" require>
+        <input type="email" class="form-control" id="email" name="email" require>
 
         <label for="senha">Senha:</label>
-        <input type="password" id="senha" name="senha" require>
+        <input type="password" class="form-control" id="senha" name="senha" require>
 
-        <button type="submit">Entrar</button>
+        <button type="submit" class="btn btn-outline-warning">Entrar</button>
     </form>
 
     <p><a href="recuperar_senha.php">Esqueci a minha senha</a></p>
