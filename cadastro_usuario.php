@@ -118,14 +118,14 @@ $permissoes = [
     <center><h2>Cadastrar Usuário</h2></center>
     <form action="cadastro_usuario.php" method="POST"> <!-- Pq não "#" o objetivo é que busque no arquivo Back-End.(aqui está no mesmo pq nos é vagabundo e faz tudo no mesmo,mas o back-end deve estar separado do Front-End--> 
         <label for="nome">Nome:</label>
-        <input type="text" class="form-control" placeholder="Pesquisar Fornecedores" id="nome" name="nome" required>
+        <input type="text" class="form-control" placeholder="Insira o nome" id="nome" name="nome" required>
          
 
         <label for="email">Email:</label>
-        <input type="email" class="form-control" placeholder="Pesquisar Fornecedores" id="email" name="email" required>
+        <input type="email" class="form-control" placeholder="Ex: usuario@usuario.com" id="email" name="email" required>
 
         <label for="senha">Senha:</label>
-        <input type="password" class="form-control" placeholder="Pesquisar Fornecedores" id="senha" name="senha" required>
+        <input type="password" class="form-control" placeholder="Insira sua senha" id="senha" name="senha" required>
 
         <label for="id_perfil">Perfil:</label>
         <select id="id_perfil" name="id_perfil">
