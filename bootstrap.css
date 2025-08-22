@@ -413,7 +413,6 @@ svg {
   transition: 0.3s;
 }
 svg:hover{
-  transform:scale(1.2);
   fill: red;
 }
 #alterar:hover{
@@ -424,7 +423,7 @@ table {
   caption-side: bottom;
   border-collapse: collapse;
   height: 200px !important;
-  width: 600px !important;
+  width: 850px !important;
 }
 
 caption {
