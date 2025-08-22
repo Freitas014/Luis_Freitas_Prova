@@ -67,9 +67,7 @@ $permissoes = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Principal</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js">
-
-    </script>
+    <script src="scripts.js"></script>
 </head>
 <body>
     <header>
