@@ -89,7 +89,7 @@ $permissoes = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Usuário</title>
+    <title>Alterar Cliente</title>
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js"></script>
@@ -113,10 +113,10 @@ $permissoes = [
         </ul>
     </nav>
 <body>
-    <h2>Alterar Usuário</h2>
+    <h2>Alterar Cliente</h2>
     <form action="alterar_cliente.php" method="POST">
         <label for="busca_cliente">Digite o ID ou o nome do usuário:</label>
-        <input type="text" id="busca_cliente" name="busca_cliente" required onkeyup="buscarSugestoes()">
+        <input type="text" class="form-control" placeholder="Insira ID ou Nome" id="busca_cliente" name="busca_cliente" required onkeyup="buscarSugestoes()">
 
         <!-- Div para exibir sugestoes de cliente -->
          <div id="sugestoes">
@@ -139,11 +139,27 @@ $permissoes = [
             <input type="text" class="form-control" id="endereco" name="endereco" palceholder="Alterar Endereço" value="<?=htmlspecialchars($cliente['endereco']);?>" required>
 
             <label for="telefone">telefone:</label>
-            <input type="text" class="form-control" name="telefone" id="telefone" palceholder="Alterar Telefone" value="<?=htmlspecialchars($cliente['telefone']);?>" required> 
+            <input type="tel" pattern="\(d\{2}\)\d{4,5}-\d{4}" class="form-control" name="telefone" id="telefone" palceholder="Alterar Telefone" value="<?=htmlspecialchars($cliente['telefone']);?>" required> 
         
             <button type="submit" class="btn btn-outline-warning">Alterar</button>
             <button type="reset" class="btn btn-outline-warning">Cancelar</button>
         </form>
+        <script>        
+    //Mascara pro campo telefone
+      telefone.addEventListener("input", function(){
+          let valor = telefone.value.replace(/\D/g, "");
+          if(valor.lenght >10){
+              valor = valor.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3")
+          } else if(valor.length > 5){
+              valor = valor.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3")
+          }else{
+              valor = valor.replace(/^(\d*)/, "($1")
+          }
+            
+          telefone.value = valor;
+    
+        })
+        </script> 
     <?php endif; ?>
     <a href="principal.php">Voltar</a>
          
