@@ -116,7 +116,7 @@ $permissoes = [
     <h2>Alterar Usuário</h2>
     <form action="alterar_usuario.php" method="POST">
         <label for="busca_usuario">Digite o ID ou o nome do usuário:</label>
-        <input type="text" class="form-control" id="busca_usuario" name="busca_usuario" required onkeyup="buscarSugestoes()">
+        <input type="text" class="form-control" placeholder="Insira ID ou Nome" id="busca_usuario" name="busca_usuario" required onkeyup="buscarSugestoes()">
 
         <!-- Div para exibir sugestoes de usuarios -->
          <div id="sugestoes">
