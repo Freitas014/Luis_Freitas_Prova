@@ -93,7 +93,8 @@ $permissoes = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Usuário</title>
+    <title>Cadastrar Cliente</title>
+    <script src="validarCliente.js"></script>
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -115,24 +116,61 @@ $permissoes = [
         </ul>
     </nav>
 <body>
-    <center><h2>Cadastrar Usuário</h2></center>
-    <form action="cadastro_cliente.php" method="POST"> <!-- Pq não "#" o objetivo é que busque no arquivo Back-End.(aqui está no mesmo pq nos é vagabundo e faz tudo no mesmo,mas o back-end deve estar separado do Front-End--> 
+    <center><h2>Cadastrar Cliente</h2></center>
+    <form id="formCliente"action="cadastro_cliente.php" method="POST"> <!-- Pq não "#" o objetivo é que busque no arquivo Back-End.(aqui está no mesmo pq nos é vagabundo e faz tudo no mesmo,mas o back-end deve estar separado do Front-End--> 
         <label for="nome">Nome:</label>
         <input type="text" class="form-control" placeholder="Insira o Nome" id="nome" name="nome" required>
          
         <label for="email">Email:</label>
-        <input type="email" class="form-control" placeholder="Insira o Email" id="email" name="email" required>
+        <input type="email" class="form-control" placeholder="Ex: email@email.com" id="email" name="email" required>
 
         <label for="endereco">endereco:</label>
-        <input type="text" class="form-control" placeholder="Insira o Endereço" id="endereco" name="endereco" required>
+        <input type="text" class="form-control" placeholder="Ex: Bairro Senai, Rua Senai, 202" id="endereco" name="endereco" required>
 
         <label for="telefone">Telefone:</label>
-        <input type="text" class="form-control" placeholder="Insira o Telefone" id="telefone" name="telefone" required>
+        <input type="tel" class="form-control" placeholder="(00) 00000-0000" id="telefone" name="telefone" required>
 
         <button id="botao" class="btn btn-outline-warning" type="submit">Salvar</button>
         <button id="botao" class="btn btn-outline-warning" type="reset">Cancelar</button>
-    </form>
+    <script>
+                //Não funcionou😢
+
+    //     document.getElementById("formCliente").addEventListener("submit", function() {
+    //     const nome = document.getElementById("nome").value.trim();
+    //     const email = document.getElementById("email").value.trim();
+    //     const endereco = document.getElementById("endereco").value.trim();
+    //     const telefone = document.getElementById("telefone").value.trim();
+
+    // //validação campo nome
+    // if (nome.length <3) {
+    //     ("Insira seu nome completo");
+    // }
+    // //validação campo email
+    //if (endereco.length <3) {
+    //     print("Insira seu nome completo");
+    // }
+    // //validação campo email
+    // let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!regexEmail.test(email)) {
+    //     alert("Digite um e-mail válido.");
+    //     return;
+    // }
+    //Mascara pro campo telefone
+      telefone.addEventListener("input", function(){
+          let valor = telefone.value.replace(/\D/g, "");
+          if(valor.lenght >10){
+              valor = valor.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3")
+          } else if(valor.length > 5){
+              valor = valor.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3")
+          }else{
+              valor = valor.replace(/^(\d*)/, "($1")
+          }
+            
+          telefone.value = valor;
     
+        });
+        </script>
+    </form>
     <center><a href="principal.php">Voltar</a></center>
     <br><br><address align="center">
         Luís Fernando / Estudante / Técnico Desenvolvimento de Sistemas
